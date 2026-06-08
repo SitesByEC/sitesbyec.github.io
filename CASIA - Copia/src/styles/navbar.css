@@ -1,0 +1,202 @@
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1rem, 2vw, 2rem);
+    gap: 1rem;
+    background-color: var(--nav-bg);
+}
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+.nav-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.85rem;
+    background-color: var(--nav-item-bg);
+    border-radius: 0.85rem;
+}
+.nav-logo img {
+    max-height: 42px;
+    width: auto;
+    display: block;
+}
+.nav-toggle {
+    display: none;
+    width: 46px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--nav-item-color);
+    margin: 5px 0;
+    border-radius: 999px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+.nav-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+    min-width: 0;
+}
+.nav-item,
+.nav-item-dropdown,
+.nav-contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.85rem;
+    background-color: var(--nav-item-bg);
+    color: var(--nav-item-color);
+    font-size: 0.95rem;
+    line-height: 1.2;
+}
+.nav-item:hover,
+.nav-item-dropdown:hover,
+.nav-contact-button:hover {
+    background-color: var(--nav-item-bg-hover);
+    color: var(--nav-item-color-hover);
+}
+.nav-item-dropdown {
+    position: relative;
+    min-width: 180px;
+}
+.dropdown-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+
+.nav-contact-button,
+.dropdown-button{
+    background-color: var(--nav-item-bg);
+    color: var(--nav-item-color);
+}
+
+.dropdown-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background-color: var(--nav-bg);
+    box-shadow: 0 18px 32px rgba(0, 0, 0, 0.16);
+    border-radius: 0.85rem;
+    overflow: hidden;
+    z-index: 1000;
+}
+.dropdown-container.dropdown-open,
+.nav-item-dropdown:hover .dropdown-container,
+.nav-contact-dropdown:hover .dropdown-container,
+.dropdown-container:hover {
+    display: block;
+}
+.dropdown-content {
+    padding: 0.85rem 1rem;
+    background-color: var(--nav-item-bg);
+    color: var(--nav-item-color);
+}
+.dropdown-content a {
+    display: block;
+    color: var(--nav-item-color);
+    text-decoration: none;
+}
+.dropdown-content:hover {
+    background-color: var(--nav-item-bg-hover);
+    color: var(--nav-item-color-hover);
+}
+.nav-contact-dropdown {
+    position: relative;
+    min-width: 150px;
+}
+.nav-contact-dropdown .dropdown-container {
+    right: 0;
+    left: auto;
+}
+.nav-contact-button {
+    width: 100%;
+}
+@media (max-width: 860px) {
+    .nav-menu {
+        width: 100%;
+    }
+}
+@media (max-width: 700px) {
+    .nav-toggle {
+        display: inline-flex;
+    }
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 0.75rem;
+    }
+    .nav-menu.nav-menu-open {
+        display: flex;
+    }
+    .nav-links,
+    .nav-contact-dropdown {
+        flex-direction: column;
+        width: 100%;
+    }
+    .nav-item,
+    .nav-item-dropdown,
+    .nav-contact-dropdown,
+    .nav-contact-button {
+        width: 100%;
+    }
+    .dropdown-container {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease;
+    }
+    .dropdown-container.dropdown-open {
+        max-height: 1000px;
+    }
+}
