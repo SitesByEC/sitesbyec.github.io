@@ -1,0 +1,21 @@
+:root {
+    --body-bg: #f4f7fb;
+    --text-color: #111827;
+    --nav-bg: #0f172a;
+    --nav-item-bg: #1f2937;
+    --nav-item-color: #e2e8f0;
+    --nav-item-bg-hover: #334155;
+    --nav-item-color-hover: #f8fafc;
+    --catalog-bg: #e9eef7;
+    --catalog-item-bg: #ffffff;
+    --catalog-item-img-container-bg: #f8fbff;
+    --info-bg: #e3efff;
+    --info-color: #0f172a;
+    --footer-bg: #111827;
+    --footer-color: #dbeafe;
+    --accent: #f2c94c;
+    --muted: #64748b;
+
+    /*font e font size*/
+    --font: "Roboto", sans-serif; /*font: font-style, font-variant, font-weight, font-stretch, font-size, line-height, font-family*/
+}
